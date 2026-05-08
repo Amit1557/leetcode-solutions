@@ -23,7 +23,7 @@ public:
             }
         }
 
-        
+       
         if(oddFound) ans++;
 
         return ans;
