@@ -1,7 +1,7 @@
 class Solution {
 public:
     double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) {
-        // Always binary search on smaller array
+        
         if(nums1.size() > nums2.size())
             return findMedianSortedArrays(nums2, nums1);
 
@@ -21,26 +21,26 @@ public:
             int right1 = (cut1 == n1) ? INT_MAX : nums1[cut1];
             int right2 = (cut2 == n2) ? INT_MAX : nums2[cut2];
 
-            // Correct partition
+            
             if(left1 <= right2 && left2 <= right1) {
 
-                // Even total elements
+              
                 if((n1 + n2) % 2 == 0) {
                     return (max(left1, left2) + min(right1, right2)) / 2.0;
                 }
 
-                // Odd total elements
+              
                 else {
                     return max(left1, left2);
                 }
             }
 
-            // Move left
+         
             else if(left1 > right2) {
                 high = cut1 - 1;
             }
 
-            // Move right
+         
             else {
                 low = cut1 + 1;
             }
