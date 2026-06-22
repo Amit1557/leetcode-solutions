@@ -1,18 +1,17 @@
 class Solution {
     public int maxNumberOfBalloons(String text) {
-          int[] cnt = new int[26];
+        int[] cnt = new int[26];
 
         for (int i = 0; i < text.length(); i++) {
-            char ch = text.charAt(i);
-            cnt[ch - 'a']++;
+            cnt[text.charAt(i) - 'a']++;
         }
 
-        int ans = cnt[1]; // b
+        int ans = cnt['b' - 'a'];
 
-        ans = Math.min(ans, cnt[0]);      // a
-        ans = Math.min(ans, cnt[11] / 2); // l
-        ans = Math.min(ans, cnt[14] / 2); // o
-        ans = Math.min(ans, cnt[13]);     // n
+        ans = Math.min(ans, cnt['a' - 'a']);
+        ans = Math.min(ans, cnt['l' - 'a'] / 2);
+        ans = Math.min(ans, cnt['o' - 'a'] / 2);
+        ans = Math.min(ans, cnt['n' - 'a']);
 
         return ans;
     }
