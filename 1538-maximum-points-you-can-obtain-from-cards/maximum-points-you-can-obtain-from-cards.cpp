@@ -10,11 +10,11 @@ public:
         int total=lsum;
         int maxsum=lsum;
         while(l>=0){
-            total-=cardPoints[l];
-            total+=cardPoints[n-r-1];
+            lsum-=cardPoints[l];
+            lsum+=cardPoints[n-r-1];
             r++;
             l--;
-            maxsum=max(maxsum,total);
+            maxsum=max(maxsum,lsum);
         }
         return maxsum;
     }
