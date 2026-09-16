@@ -1,29 +1,24 @@
 class Solution {
 public:
-    bool isPalindrome(string s) {
-         int left = 0;
-        int right = s.length() - 1;
-
-        while (left < right) {
-
-           
-            while (left < right && !isalnum(s[left])) {
-                left++;
-            }
-
-            while (left < right && !isalnum(s[right])) {
-                right--;
-            }
-
-           
-            if (tolower(s[left]) != tolower(s[right])) {
-                return false;
-            }
-
-            left++;
-            right--;
+bool check( vector<char>& p, int i){
+        int n=p.size();
+        if(i>=n/2){
+            return true;
         }
-
-        return true;
+        if(p[i]!=p[n-i-1]){
+            return false;
+        }
+       return check(p,i+1);
+    }
+    bool isPalindrome(string s) {
+        vector<char> p;
+        for(int i=0;i<s.size();i++){
+            if(isalnum(s[i])){
+            p.push_back(tolower(s[i]));
+            }
+        }
+        return check(p,0);
     }
 };
+
+
