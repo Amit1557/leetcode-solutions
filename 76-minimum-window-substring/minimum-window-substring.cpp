@@ -1,7 +1,7 @@
 class Solution {
 public:
     string minWindow(string s, string t) {
-        // Step 1: Create a frequency map for ASCII characters (size 128 or 256)
+        
         vector<int> mpp(128, 0);
         for (char c : t) {
             mpp[c]++;
